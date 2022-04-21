@@ -3,8 +3,8 @@
 
     <template id="external_layout_eauzon">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
-            <div class="o_eauzon_header mt32">
-            <div class="row mb8 first-page">
+            <div class="o_eauzon_header mt32 first-page">
+            <div class="row mb8">
                 <div class="col-6 mb4">
                     <!-- <h4 class="mt0" t-field="company.report_header"/> -->
                     <div name="company_address" class="company_address mb4">
@@ -16,6 +16,15 @@
                 </div>
             </div>
             </div>
+            <div class="o_eauzon_header mt32 not-first-page">
+                <div class="row mb8">
+                    <div class="col-6 mb4">
+                    </div>                
+                    <div class="col-6 text-right">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                    </div>
+                </div>
+                </div>
         </div>
 
         <div t-attf-class="article o_report_layout_eauzon o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' }});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
@@ -72,16 +81,16 @@
 
                         var operations = {
                             'not-first-page': function (elt) {
-                                elt.style.visibility = (vars.sitepage === vars.frompage) ? "hidden" : "visible";
+                                elt.style.display = (vars.sitepage === vars.frompage) ? "none" : "block";
                             },
                             'not-last-page': function (elt) {
-                                elt.style.visibility = (vars.sitepage === vars.sitepages) ? "hidden" : "visible";
+                                elt.style.display = (vars.sitepage === vars.sitepages) ? "none" : "block";
                             },
                             'first-page': function (elt) {
-                                elt.style.visibility = (vars.sitepage === vars.frompage) ? "visible" : "hidden";
+                                elt.style.display = (vars.sitepage === vars.frompage) ? "block" : "none";
                             },
                             'last-page': function (elt) {
-                                elt.style.visibility = (vars.sitepage === vars.sitepages) ? "visible" : "hidden";
+                                elt.style.display = (vars.sitepage === vars.sitepages) ? "block" : "none";
                             },
                         };
 
