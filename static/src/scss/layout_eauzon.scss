@@ -7,9 +7,13 @@
 .o_eauzon_header {
     border-bottom: 0px solid gray('200');
     margin-top: 1rem;
-    img {
+    // padding-bottom: 1rem;
+    img.o_eauzon_logo_primary{
         max-height: 150px;
     }
+    img.o_eauzon_logo_secundary{
+        max-height: 30px;
+    }    
     h4 {
         color: #999999;
         font-weight: 700;
