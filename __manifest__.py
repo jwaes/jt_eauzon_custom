@@ -14,7 +14,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '15.1.3',
+    'version': '0.4',
 
     # any module necessary for this one to work correctly
     'depends': ['base','web'],
@@ -23,6 +23,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'report/purchase_order_templates.xml',
+        'report/purchase_quotation_templates.xml',
         'views/report_templates.xml',
         'data/report_layout.xml',
         # 'views/templates.xml',
