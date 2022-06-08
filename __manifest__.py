@@ -25,6 +25,7 @@
         'report/purchase_order_templates.xml',
         'report/purchase_quotation_templates.xml',
         'views/report_templates.xml',
+        'views/sale_views.xml',
         'data/report_layout.xml',
         # 'views/templates.xml',
     ],
