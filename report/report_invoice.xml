@@ -12,7 +12,7 @@
                 <div t-if="line.product_id.hs_code_id and line.product_id.weight"
                 >
                     <span>Total weight: </span>
-                    <span t-esc="line.product_id.weight * line.quantity" class="text-monospace" />
+                    <span t-esc="'%.2f' % (line.product_id.weight * line.quantity)" class="text-monospace" />
                     <span class="text-monospace">kg</span>
                 </div>
                 <div t-if="line.product_id.origin_country_id">
