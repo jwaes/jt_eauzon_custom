@@ -4,7 +4,7 @@
         inherit_id="account.report_invoice_document">
         <xpath expr="//td[@name='account_invoice_line_name']" position="inside">
             <div name="hs-info" class="text-small"
-                t-if="o.fiscal_position_id.id == 'l10n_be.1_fiscal_position_template_2'">
+                t-if="o.fiscal_position_id.show_hs_info_on_invoice">
                 <div t-if="line.product_id.hs_code_id" class="text-monospace">
                     <span>HS code: </span>
                     <span t-field="line.product_id.hs_code_id.hs_code" class="text-monospace" />

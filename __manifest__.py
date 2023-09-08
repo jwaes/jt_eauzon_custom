@@ -14,7 +14,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.14',
+    'version': '0.15',
 
     # any module necessary for this one to work correctly
     'depends': ['base','web','purchase','stock','sale_management','account'],
@@ -26,6 +26,7 @@
         'report/purchase_order_templates.xml',
         'report/purchase_quotation_templates.xml',
         'report/report_invoice.xml',
+        'views/fiscal_position.xml',
         'views/report_templates.xml',
         'views/sale_views.xml',
         'data/report_layout.xml',
