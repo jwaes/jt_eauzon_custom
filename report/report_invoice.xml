@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_invoice_document_hs" name="template_name" inherit_id="account.report_invoice_document">
+    <template id="report_invoice_document_hs" name="template_name"
+        inherit_id="account.report_invoice_document">
         <xpath expr="//td[@name='account_invoice_line_name']" position="inside">
-            <div t-if="line.product_id.hs_code_id" class="text-monospace">
-                <span>HS code: </span><span t-field="line.product_id.hs_code_id.hs_code" class="text-monospace"/>                
+            <div name="hs-info" class="text-small"
+                t-if="o.fiscal_position_id .id == 'l10n_be.1_fiscal_position_template_2'">
+                <div t-if="line.product_id.hs_code_id" class="text-monospace">
+                    <span>HS code: </span>
+                    <span t-field="line.product_id.hs_code_id.hs_code" class="text-monospace" />
+                </div>
+                <div t-if="line.product_id.hs_code_id and line.product_id.weight"
+                    class="text-monospace">
+                    <span>Total weight: </span>
+                    <span t-esc="line.product_id.weight * line.quantity" />
+                    <span>kg</span>
+                </div>
+                <div t-if="line.product_id.origin_country_id" class="text-monospace">
+                    <span>Country of origin: </span>
+                    <span t-field="line.product_id.origin_country_id.name" class="text-monospace" />
+                </div>
             </div>
-            <div t-if="line.product_id.hs_code_id and line.product_id.weight" class="text-monospace">
-                <span>Total weight: </span><span t-esc="line.product_id.weight * line.quantity"/> <span>kg</span>
-            </div>
-            <div t-if="line.product_id.origin_country_id" class="text-monospace">
-                <span>Country of origin: </span><span t-field="line.product_id.origin_country_id.name" class="text-monospace"/>
-            </div>            
         </xpath>
     </template>
 </odoo>
