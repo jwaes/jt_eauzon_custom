@@ -3,23 +3,23 @@
     <template id="report_invoice_document_hs" name="template_name"
         inherit_id="account.report_invoice_document">
         <xpath expr="//td[@name='account_invoice_line_name']" position="inside">
-            <div name="hs-info" class="text-small"
+            <small name="hs-info"
                 t-if="o.fiscal_position_id.show_hs_info_on_invoice">
-                <div t-if="line.product_id.hs_code_id" class="text-monospace">
+                <div t-if="line.product_id.hs_code_id">
                     <span>HS code: </span>
                     <span t-field="line.product_id.hs_code_id.hs_code" class="text-monospace" />
                 </div>
                 <div t-if="line.product_id.hs_code_id and line.product_id.weight"
-                    class="text-monospace">
+                >
                     <span>Total weight: </span>
-                    <span t-esc="line.product_id.weight * line.quantity" />
-                    <span>kg</span>
+                    <span t-esc="line.product_id.weight * line.quantity" class="text-monospace" />
+                    <span class="text-monospace">kg</span>
                 </div>
-                <div t-if="line.product_id.origin_country_id" class="text-monospace">
+                <div t-if="line.product_id.origin_country_id">
                     <span>Country of origin: </span>
                     <span t-field="line.product_id.origin_country_id.name" class="text-monospace" />
                 </div>
-            </div>
+            </small>
         </xpath>
     </template>
 </odoo>
