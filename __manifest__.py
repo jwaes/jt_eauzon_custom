@@ -31,6 +31,7 @@
         'views/product_template_view.xml',
         'views/report_templates.xml',
         'views/sale_views.xml',
+        'views/uom_views.xml',
         'data/report_layout.xml',
         # 'views/templates.xml',
     ],
