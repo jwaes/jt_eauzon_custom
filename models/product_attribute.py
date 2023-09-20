@@ -13,6 +13,11 @@ class ProductAttributeValue(models.Model):
 
     code_fragment = fields.Char(string="Code fragment")
 
+class ProductTemplateAttributeLine(models.Model):    
+    _inherit =  "product.template.attribute.line"
+
+    code_fragment = fields.Char('Code fragment', related="attribute_id.attribute_code")
+
 # class ProductTemplateAttributeValue(models.Model):
 #     _inherit = "product.template.attribute.value"
 

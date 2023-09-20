@@ -8,17 +8,13 @@
         <field name="priority">70</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='variants']" position="inside">
-                <field name="variant_code_template"/>
+                <group>
+                    <field name="variant_code_template" />
+                </group>
             </xpath>
-            <field name="categ_id" position="after">
-                <field name="variant_code_template"/>
-            </field>
-            <!-- <field name="attribute_line_ids" position="after">
-                <field name="variant_code_template"/>
-            </field> -->
-            <!-- <field name="attribute_id" position="after">
-                <field name="attribute_id.attribute_code" attrs="{'readonly': [('id', '!=', False)]}" optional="hide"/>
-            </field>             -->
+            <field name="attribute_id" position="after">
+                <field name="code_fragment" optional="hide"/>
+            </field>            
         </field>
     </record>
 
