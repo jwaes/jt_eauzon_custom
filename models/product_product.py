@@ -18,7 +18,9 @@ class ProductProduct(models.Model):
         elif attribute_code == "D":
             return str(int(self.density))
         else :
-            for att_val in self.product_template_variant_value_ids:
+            # _logger.info("Searching for %s", attribute_code)
+            for att_val in self.product_template_attribute_value_ids:
+                # _logger.info(" attr code %s ", att_val.attribute_id.attribute_code)
                 if att_val.attribute_id.attribute_code and att_val.attribute_id.attribute_code == attribute_code:
                     return att_val.product_attribute_value_id.code_fragment
             return None
