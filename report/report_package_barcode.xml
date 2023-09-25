@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_package_barcode" inherit_id="stock.report_package_barcode">
+        <xpath expr="//table[last()]" position="before">
+            <div t-if="o.note">
+                <p t-field="o.note"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
