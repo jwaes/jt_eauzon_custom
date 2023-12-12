@@ -34,4 +34,8 @@ class PurchaseOrder(models.Model):
 
             else:
                 _logger.info("Nothing to do for this vendor")
-                
+
+    def button_approve(self, force=False):
+        result = super(PurchaseOrder, self).button_approve(force=force)
+        self._create_orderpoints()
+        return result
