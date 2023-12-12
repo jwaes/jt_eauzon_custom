@@ -5,3 +5,5 @@ from . import product_template
 from . import product_product
 from . import uom_uom
 from . import stock_quant
+from . import purchase_order
+from . import res_partner
