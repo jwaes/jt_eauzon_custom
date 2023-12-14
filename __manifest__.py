@@ -14,7 +14,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.24',
+    'version': '0.25',
 
     # any module necessary for this one to work correctly
     'depends': ['base','web','purchase','stock','sale_management','account','mrp_subcontracting'],
@@ -28,6 +28,7 @@
         'report/report_invoice.xml',
         'report/report_package_barcode.xml',
         'views/fiscal_position.xml',
+        'views/mrp_bom_views.xml',
         'views/product_attribute_views.xml',
         'views/product_template_view.xml',
         'views/report_templates.xml',

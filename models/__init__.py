@@ -7,3 +7,4 @@ from . import uom_uom
 from . import stock_quant
 from . import purchase_order
 from . import res_partner
+from . import mrp_bom
