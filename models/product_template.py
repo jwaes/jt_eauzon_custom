@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
 
     variant_code_template = fields.Char('Variant code template')
 
-    def generate_variant_codes(self):
+    def generate_variant_codes(self, regenerate=False):
         for tmpl in self:
             _logger.info("Generating variant codes for Product Template '%s'", tmpl.name)
             code_template = tmpl.variant_code_template
@@ -35,7 +35,7 @@ class ProductTemplate(models.Model):
                                 result = result.replace(match[0], code_frag)
                                 _logger.info("Result is '%s'", result)
                         if success:
-                            if not variant.default_code:
+                            if not variant.default_code or regenerate:
                                 variant.default_code = result
                             else:
                                 _logger.info("Default code is already set: %s", variant.default_code)
