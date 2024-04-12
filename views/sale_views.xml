@@ -9,6 +9,19 @@
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="client_order_ref" readonly="1" />
             </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_order_tree_inherit_eauzon" model="ir.ui.view">
+        <field name="name">sale.order.view.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="amount_invoiced" sum="Total Invoiced" widget="monetary"
+                    decoration-bf="1" optional="show" />
+            </xpath>
         </field>
     </record>
 
