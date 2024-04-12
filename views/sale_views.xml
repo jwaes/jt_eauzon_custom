@@ -21,6 +21,8 @@
             <xpath expr="//field[@name='amount_total']" position="after">
                 <field name="amount_invoiced" sum="Total Invoiced" widget="monetary"
                     decoration-bf="1" optional="show" />
+                <field name="amount_to_invoice" sum="Total To Invoice" widget="monetary"
+                    decoration-bf="1" optional="hide" />                    
             </xpath>
         </field>
     </record>
