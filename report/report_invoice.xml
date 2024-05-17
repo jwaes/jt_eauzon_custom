@@ -11,10 +11,19 @@
                 </div>
                 <div t-if="line.product_id.hs_code_id and line.product_id.weight"
                 >
-                    <span>Total weight: </span>
+                    <span>Total net weight: </span>
                     <span t-esc="'%.2f' % (line.product_id.weight * line.quantity)" class="text-monospace" />
                     <span class="text-monospace">kg</span>
                 </div>
+                <t t-set="surface_cat" t-value="env.ref('uom.uom_categ_surface')"/>
+                <t t-set="sqm" t-value="env.ref('uom.uom_square_meter')"/>
+                <div t-if="line.product_id.hs_code_id and line.product_id.uom_id.category_id.id == surface_cat.id"
+                >
+                    <span>Total surface: </span>
+                    <t t-set="surface" t-value="line.product_id.uom_id._compute_quantity(line.quantity, sqm)"/>
+                    <span t-esc="'%.2f' % (surface)" class="text-monospace" />
+                    <span class="text-monospace"><t t-esc="sqm.name"/></span>
+                </div>                
                 <div t-if="line.product_id.origin_country_id">
                     <span>Country of origin: </span>
                     <span t-field="line.product_id.origin_country_id.name" class="text-monospace" />
