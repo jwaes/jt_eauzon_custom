@@ -16,7 +16,7 @@ class ProductTemplate(models.Model):
             code_template = tmpl.variant_code_template
             if code_template:
                 _logger.info("Code template:[%s]", code_template )
-                matches = re.findall("(\$([^\$]*)\$)", code_template)
+                matches = re.findall(r"(\$([^\$]*)\$)", code_template)
                 if matches :
                     success = True
                     for variant in tmpl.product_variant_ids:
