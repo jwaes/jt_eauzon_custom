@@ -11,7 +11,7 @@
                             <span t-if="company.company_details" t-field="company.company_details"></span>
                         </div>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-6 text-end">
                         <img class="o_eauzon_logo_primary" t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" />
                     </div>
                 </div>
