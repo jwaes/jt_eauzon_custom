@@ -8,15 +8,11 @@ _logger = logging.getLogger(__name__)
 def migrate(cr, version):
     
     modules_to_uninstall = [
+        'jt_sale_order_line_codecolumn',
         'jt_invoice_cashdiscount',
-        # 'mollie_account_sync',
-        # 'jt_website_sale_vatprices',
-        # # 'jt_documents_product',
-        # # 'jt_documents_website',
-        # 'jt_account_sepa',
-        # 'jt_invoice_cashdiscount',
-        # 'jt_stock_subcontracting',
-        # 'jt_webeditor_extras',
+        'excel_import_export',
+        'excel_import_export_demo',
+        'maintenance_equipment_image',
     ]
 
     for candidate in modules_to_uninstall:
