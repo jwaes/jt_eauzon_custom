@@ -6,4 +6,4 @@ class Partner(models.Model):
 
     create_vendor_reordering_rules = fields.Boolean('Vendor reordering rules', default=False)
     vendor_reordering_route_id = fields.Many2one(
-        'stock.location.route', string='Preferred reordering Route', domain="[('product_selectable', '=', True)]")    
+        'stock.route', string='Preferred reordering Route', domain="[('product_selectable', '=', True)]")    
