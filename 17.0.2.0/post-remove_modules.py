@@ -13,14 +13,14 @@ def migrate(cr, version):
         'excel_import_export',
         'excel_import_export_demo',
         'maintenance_equipment_image',
-        
+
 
 
     ]
 
-    # for candidate in modules_to_uninstall:
-    #     _logger.info("About to uninstall module %s", candidate)
-    #     util.uninstall_module(cr,candidate)
+    for candidate in modules_to_uninstall:
+        _logger.info("About to uninstall module %s", candidate)
+        util.uninstall_module(cr,candidate)
 
 
     # util.remove_theme(cr, 'theme_now')
