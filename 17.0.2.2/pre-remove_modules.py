@@ -8,6 +8,7 @@ _logger = logging.getLogger(__name__)
 def migrate(cr, version):
     
     modules_to_uninstall = [
+        'jt_invoice_cashdiscount',
         # 'mollie_account_sync',
         # 'jt_website_sale_vatprices',
         # # 'jt_documents_product',
