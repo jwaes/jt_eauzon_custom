@@ -13,9 +13,6 @@ def migrate(cr, version):
         'excel_import_export',
         'excel_import_export_demo',
         'maintenance_equipment_image',
-
-
-
     ]
 
     for candidate in modules_to_uninstall:
