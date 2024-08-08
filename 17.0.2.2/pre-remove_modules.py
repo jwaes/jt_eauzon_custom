@@ -19,6 +19,7 @@ def migrate(cr, version):
         util.uninstall_module(cr,candidate)
 
     util.remove_view(cr, xml_id='jt_debrand.portal_record_sidebar_debrand')
+    util.remove_view(cr, xml_id='jt_invoice_cashdiscount.report_invoice_document')
     # util.remove_view(cr, xml_id='jt_now_custom.product_quantity')
     # # util.remove_view(cr, xml_id='jt_now_custom.shop_product_carousel_square')
 
