@@ -10,6 +10,7 @@ def migrate(cr, version):
     modules_to_uninstall = [
         'jt_sale_order_line_codecolumn',
         'jt_invoice_cashdiscount',
+        'jt_account_nobanner',
         'excel_import_export',
         'excel_import_export_demo',
         'maintenance_equipment_image',
