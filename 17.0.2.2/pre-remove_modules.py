@@ -20,6 +20,16 @@ def migrate(cr, version):
 
     util.remove_view(cr, xml_id='jt_debrand.portal_record_sidebar_debrand')
     util.remove_view(cr, xml_id='jt_invoice_cashdiscount.report_invoice_document')
+    util.remove_view(cr, xml_id='jt_eauzon_custom.view_order_tree_inherit_eauzon')
+
+    util.remove_view(cr, xml_id='excel_import_export.view_xlsx_template_tree')
+    util.remove_view(cr, xml_id='excel_import_export.view_xlsx_template_form')
+    util.remove_view(cr, xml_id='excel_import_export.action_xlsx_template')
+    # util.remove_view(cr, xml_id='excel_import_export.menu_excel_import_export')
+    # util.remove_view(cr, xml_id='excel_import_export.view_xlsx_template_form')            
+
+
+
     # util.remove_view(cr, xml_id='jt_now_custom.product_quantity')
     # # util.remove_view(cr, xml_id='jt_now_custom.shop_product_carousel_square')
 
