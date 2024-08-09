@@ -13,6 +13,7 @@ def migrate(cr, version):
         'excel_import_export',
         'excel_import_export_demo',
         'maintenance_equipment_image',
+        'maintenance_equipment_sequence',
     ]
 
     for candidate in modules_to_uninstall:
@@ -20,9 +21,6 @@ def migrate(cr, version):
         util.uninstall_module(cr,candidate)
 
     util.remove_view(cr, xml_id='jt_eauzon_custom.report_invoice_document_hs')
-    # util.remove_view(cr, xml_id='jt_now_custom.product_quantity')
-    # # util.remove_view(cr, xml_id='jt_now_custom.shop_product_carousel_square')
 
-    # util.remove_field(cr, 'mollie.payment.method.issuer', 'payment_icon_ids')
     
 
