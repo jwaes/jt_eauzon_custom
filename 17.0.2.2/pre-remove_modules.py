@@ -12,6 +12,7 @@ def migrate(cr, version):
         'jt_account_nobanner',
         'jt_account_external',
         'jt_debrand',
+        'auditlog',
     ]
 
     for candidate in modules_to_uninstall:
