@@ -24,7 +24,7 @@ class PurchaseOrder(models.Model):
                                     _logger.info("About to create orderpoint")
                                     orderpoint_values = self.env['stock.warehouse.orderpoint']._get_orderpoint_values(product.id, location.id)
                                     orderpoint_values.update({
-                                        # 'name': _('Replenishment Report'),
+                                        # 'name':  self.env._('Replenishment Report'),
                                         # # 'warehouse_id': location.warehouse_id.id or self.env['stock.warehouse'].search([('company_id', '=', location.company_id.id)], limit=1).id,
                                         # 'company_id': location.company_id.id,                                    
                                         'route_id': partner.vendor_reordering_route_id.id,
