@@ -17,7 +17,9 @@
     'version': '18.0.1.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','web','purchase','stock','sale_management','account','mrp_subcontracting', 'jt_product_attributeset'],
+    'depends': ['base', 'web', 'purchase', 'stock', 'sale_management', 'account', 'mrp_subcontracting',
+                'jt_product_attributeset',
+                'jt_lead_task',],
 
     # always loaded
     'data': [
