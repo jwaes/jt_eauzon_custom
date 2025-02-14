@@ -18,6 +18,7 @@ def migrate(cr, version):
         'jt_sale_order_line_codecolumn',      
         'jt_mrp_housing',
         'website_hr_recruitment',
+        'jt_project_assign',
     ]
 
     for candidate in modules_to_uninstall:
