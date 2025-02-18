@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="label_product_product_view" name="Eauzon product Label" inherit_id="stock.label_product_product_view">
+        <xpath expr="//t[@t-as='qty']" position="replace">
+            <t t-foreach="range(product_info['quantity'])" t-as="qty">
+                <t t-translation="off">
+
+<t t-call="jt_eauzon_custom.zpl_eauzon_header"/>
+
+^FO30,330^ADN,36,20^FB770,5,20,L,0^FD<t t-out="product_info['display_name_markup']"/>^FS
+
+
+
+<t t-if="price_included">
+^FO600,410,1
+<t t-if="currency_id.position == 'after'">
+^A0N,66,48^FH^FD<t t-esc="pricelist._get_product_price(product, 1, currency_id)" t-options='{"widget": "float", "precision": 2}'/><t t-esc="currency_id.name"/>^FS
+</t>
+<t t-if="currency_id.position == 'before'">
+^A0N,66,48^FH^FD<t t-esc="currency_id.name"/><t t-esc="pricelist._get_product_price(product, 1, currency_id)" t-options='{"widget": "float", "precision": 2}'/>^FS
+</t>
+</t>
+<t t-if="barcode">
+^FO150,950^BY3
+^BCN,100,Y,N,N
+^FD<t t-out="barcode"/>^FS
+</t>
+
+<t t-call="jt_eauzon_custom.zpl_eauzon_footer"/>
+                </t>
+            </t>            
+        </xpath>
+    </template>
+
+
+    <template id="zpl_eauzon_header" name="ZPL Eauzon Header">
+^XA
+^MMT
+^PW831
+^LL1269
+^LS0
+^FPH,6^FT59,132^ADN,18,10^FH\^FDEauzon BV^FS
+^FPH,6^FT59,152^ADN,18,10^FH\^FDIjslandstraat 8/2^FS
+^FPH,6^FT59,173^ADN,18,10^FH\^FD8400 Oostende^FS
+^FPH,6^FT59,194^ADN,18,10^FH\^FDBelgium^FS
+^FPH,6^FT59,236^ADN,18,10^FH\^FDwww.eauzon.be^FS
+^FO207,1132^GFA,1033,4056,52,:Z64:eJztVr2K20AQHsUYwYFRDMe5OZ3yBtekNLIfISpMmjzEFQdujkSQ5iAvkfLIU6hLmwdIkMojjV2qiHyZnZ2Z/VFIcJPmPKDVarSzs99++40E8Pzs7Iuxz0fF5D+MNUfFZE/GuqNiErKjQk52sudhKgzVyMijjegIRfhII4waf0Hs6c29xmbSAayMXvEhHwYaCdOBezPfszf3hhscOwxgY808MMHOQaav/TxpzY3kWVTVdk0Lrqrq1nTUk6LnjbmbpxSvefW2qvBe1HDdyYZYPOh5BMHBUPihsC0u9ZvEvKOh4kk5JmnsOL+d9BJTcgz0ozx2dEbtAq8biSE8qd+hPOb9hY4GuKoZho8HDn4eylqCc+V43UkMdWZ4Xfp4aB12TK4QyhGecpRnGeE5D/AsZN2p777x8fh5ljL9VZBntdvteg9PwXFkwo/dWcVTtG1rOXQsjfFkYR48ZvsIzyLAk47wLDabTYCn9vIoP5RC82T39586D4/Z8UuJUX6Ih6nEzPjMCT+rP+JZBXiwM+kiPBcBnjE/KWvo7/zYhPhXQKmyRnI6fogWwM1Rfux5Q1oIRtpITsfPe+p9kHqgwLRUdJpHV0gwYLvdRvpBD71J1kKh8sM61fpWi05/Mp6kg9LHgzs+tecC1mvhJyGPnjd8ZAqVH1d3RDbXezepsV62lvHM57aagcBQj/KD4nnt4ylkc4wtg+3y87D8mZ+2/a7zWX7Eo3jQbykUfmxN9vGIx+UpoQ/xvNTyxrTM5/bJ4TmXEqj8HPQd81P7iw/zkCv35OP0Q6b6gTxhCpUfPdZOP1GejOXjzpuWA6efCE+KJ87H48+n+onzfGx8V0HyYFP92Nk1Jv3KQ9z3p/sXnsmujvDIYqPPjodnsoUAT+1951Q/cR45kq6+7eVdyI/DmQzccd8fyvMCq4zWAzsp6vTBxshRiepBIvXA8YMee86S2xAP56L/kAjPk555zUPvClll0rJuHD+taovlw/yc8UV4HsQDgQfgFbv03cn+j/0GZMYnRg==:BF23
+^FO33,283^GB766,0,1^FS
+^FO576,54^GFA,1221,5712,28,:Z64:eJztlz1u1EAUx8drwJES2RVKitU6N9iUKVA2HSeghiNsuQWwI3EArpCa3IAmLrgDrUuoktJCwcO8+bDfm4+nEFGhjJJdj3/7nzeeGb8PIVBbq1GKdCuUUvcZtlFfr9VVmu07Idq0sBn1x0IlLbbd/Bm20XyWQ2qWd85qylxvvzcJg637rhIGR/edMOjNCfE+Yoe9v4oNNtNVbPBiuir7kM1WZsu+DclL+2M00KuAYSOrgFWZa2g1HqOjbIltB+wcd3rKttlO8FMySGBiSVgpca8mrGJ6jcz36Cj04ekS0h2kM6Ozpk9EnzZYCdINjgG3uifYeMC4HcOMLmdwCiiipyfQ4X54svA4dchknhUc6+brJcOCbSBrGLF3D9NFbcuws0eyaAKonTCM05mFOpj7CxkwtJLYj4VMIVZTVv1G7Iiym59Z3XOFN43qNgNmRFcostkvMFsPIqvTMSyngxiW00Hoy+gOIc5mdC2805hVEytNsEyPeWxcQVpng3PSXmVjc1J300fM2ytdSE/pbn7EzNnTOxAzN+Z6SDCrK6Z4HuuaXylmdfsuxYyuHUWKGV17l2TmnKFQEOky7YhhnC50VP+Cce/7YxnyS6cMi9wX8oN/5XcfyDg/z8WHcLs4HY5HXBzj4h8XN7l4y8XpML6TrC9gZJ24fILLQ7j8JdiIDne4fCnIsyTucfkZl9dx+SCXR3L5J5u3chkZl3WRzEpSxuXlXD6PT0XkJJj6ga07uHplnlz4AszlmHa3EePqKjH5+0QB6Ou4sCLBBulhoQY/xoitN12Fepwwpw3BTDP1bQFJUaYu1vX0l2vVpxlXh+v6PVeGP7Wn9tT+iyYFqcpcB+6KCtyYzpUL8UyIl2+E9Z+vjXPbjLZ+KGUNHkbaYuLWOLeN9nvV906nIjo3bnWOXoF7UibrHrS/rD/1VnfwWYpGd8RovOidcfBaJyGnXkFU2cJdYL2JWk4HUeJc7NzdojO1urMHyckZxMkeYmDZwS+U1+1A55nWdWZqVreFv6XXKX2/ufW6HrMCWOvtwR2ik3rmTgdxY5h1+l933PPBUyEdPMG51wHD8xRQdeuqEXSNwMzkAJNuZR5/5xls1LKAarO2Edqsp2WwDysIsf2FzSoa0zFs/1Z3IRR90Nu5V3YzHYN9byCaKH2h/L5bBueluL/Ue/7N6kx9dmlStMWVsPn8wp+z09yJxO0Pwsc4Mw==:40DD
+^FPH,3^FT787,232^A0N,20,20^FH\^CI28^FD®^FS^CI27
+    </template>
+
+    <template id="zpl_eauzon_footer" name="ZPL Eauzon Footer">
+^SLS,1
+^FPH,1^FT801,1201^ADB,18,10
+^FC%,{,#
+^FH\^FD%d/%m/%Y^FS
+^PQ1,0,1,Y
+^XZ        
+    </template>
+
+</odoo>
