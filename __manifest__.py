@@ -28,6 +28,7 @@
         'report/purchase_order_templates.xml',
         'report/purchase_quotation_templates.xml',
         'report/report_invoice.xml',
+        'report/product_templates.xml',
         'report/report_package_barcode.xml',
         'views/fiscal_position.xml',
         'views/mrp_bom_views.xml',
