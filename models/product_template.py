@@ -20,8 +20,8 @@ class ProductTemplate(models.Model):
                 _logger.info("Code template:[%s]", code_template)
                 matches = re.findall(r"(\$([^\$]*)\$)", code_template)
                 if matches:
-                    success = True
                     for variant in tmpl.product_variant_ids:
+                        success = True
                         result = code_template
                         for match in matches:
                             _logger.info("Match %s", match)
@@ -42,10 +42,13 @@ class ProductTemplate(models.Model):
                             else:
                                 _logger.info(
                                     "Default code is already set: %s", variant.default_code)
-
                 else:
                     _logger.warning("No matches found")
-
             else:
                 _logger.info(
                     "No code template found for this product template")
+
+    @api.onchange('variant_code_template')
+    def _onchange_variant_code_template(self):
+        if self.variant_code_template:
+            self.generate_variant_codes(regenerate=True)
