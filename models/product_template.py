@@ -47,21 +47,3 @@ class ProductTemplate(models.Model):
             else:
                 _logger.info(
                     "No code template found for this product template")
-
-    @api.onchange('variant_code_template')
-    def _onchange_variant_code_template(self):
-        if self.variant_code_template:
-            self.generate_variant_codes(regenerate=True)
-
-    @api.model
-    def create(self, vals):
-        record = super(ProductTemplate, self).create(vals)
-        if 'variant_code_template' in vals and vals['variant_code_template']:
-            record.generate_variant_codes(regenerate=True)
-        return record
-
-    def write(self, vals):
-        res = super(ProductTemplate, self).write(vals)
-        if 'variant_code_template' in vals:
-            self.generate_variant_codes(regenerate=True)
-        return res
