@@ -24,6 +24,7 @@
         </div>
 
         <div t-attf-class="article o_report_layout_eauzon o_snail_mail o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div>&amp;nbsp;</div>
             <t t-call="web.address_layout"/>
             <h2 t-out="layout_document_title"/>
             <t t-out="0"/>
